@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: auth-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  flyway:
+    locations: classpath:db/migration
+    enabled: true # Flyway 활성화
+    baseline-on-migrate: true # Flyway가 제공하는 변경 이력 테이블 자동 생성
+    baseline-version: 0 # 초기 버전 설정
+
+jwt:
+  secret-key: "ThisIsAReallyReallyLongSecretKeyAtLeast32Bytes"
+  expiration: 3600000
